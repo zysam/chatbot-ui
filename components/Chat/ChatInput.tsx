@@ -9,6 +9,19 @@ interface Props {
   stopConversationRef: MutableRefObject<boolean>;
   textareaRef: MutableRefObject<HTMLTextAreaElement | null>;
 }
+const ChatFooter = () => (
+  <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
+        <a
+          href="https://github.com/mckaywrigley/chatbot-ui"
+          target="_blank"
+          rel="noreferrer"
+          className="underline"
+        >
+          ChatBot UI
+        </a>
+        . Chatbot UI is an advanced chatbot kit for OpenAI&apos;s chat models aiming to mimic ChatGPT&apos;s interface and functionality.
+      </div>
+)
 
 export const ChatInput: FC<Props> = ({ onSend, messageIsStreaming, model, stopConversationRef, textareaRef }) => {
   const [content, setContent] = useState<string>();
@@ -76,11 +89,11 @@ export const ChatInput: FC<Props> = ({ onSend, messageIsStreaming, model, stopCo
   }
 
   return (
-    <div className="absolute bottom-0 left-0 w-full dark:border-white/20 border-transparent dark:bg-[#444654] dark:bg-gradient-to-t from-[#343541] via-[#343541] to-[#343541]/0 bg-white dark:!bg-transparent dark:bg-vert-dark-gradient pt-6 md:pt-2">
-      <div className="stretch mx-2 md:mt-[52px] mt-4 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-3xl">
+    <div className="absolute bottom-0 left-0 w-full dark:border-white/20 border-transparent dark:bg-[#444654] dark:bg-gradient-to-t from-[#343541] via-[#343541] to-[#343541]/0 bg-white/10 dark:!bg-transparent dark:bg-vert-dark-gradient md:pt-2">
+      <div className="stretch mx-2 md:mt-2 mt-0  flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-3xl">
         {messageIsStreaming && (
           <button
-            className="absolute -top-2 md:top-0 left-0 right-0 mx-auto dark:bg-[#343541] border w-fit border-gray-500 py-2 px-4 rounded text-black dark:text-white hover:opacity-50"
+            className="absolute -top-6 md:-top-6 left-0 right-0 mx-auto dark:bg-[#343541] border w-fit border-gray-500 py-0 md:py-2 px-4 rounded text-black dark:text-white hover:opacity-50"
             onClick={handleStopConversation}
           >
             <IconPlayerStop
@@ -120,17 +133,7 @@ export const ChatInput: FC<Props> = ({ onSend, messageIsStreaming, model, stopCo
           </button>
         </div>
       </div>
-      <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
-        <a
-          href="https://github.com/mckaywrigley/chatbot-ui"
-          target="_blank"
-          rel="noreferrer"
-          className="underline"
-        >
-          ChatBot UI
-        </a>
-        . Chatbot UI is an advanced chatbot kit for OpenAI&apos;s chat models aiming to mimic ChatGPT&apos;s interface and functionality.
-      </div>
+      
     </div>
   );
 };

@@ -352,11 +352,27 @@ export default function Home() {
     localStorage.removeItem("isUsingEnv");
   };
 
-  useEffect(() => {
+  const handleResize = () => {
     if (window.innerWidth < 640) {
       setShowSidebar(false);
+    } else {
+      setShowSidebar(true)
     }
+  }
+  useEffect(() => {
+    // if (window.innerWidth < 640) {
+    //   setShowSidebar(false);
+    // }
+    handleResize()
   }, [selectedConversation]);
+
+  useEffect(() => {
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
     if (apiKey) {

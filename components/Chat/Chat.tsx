@@ -90,7 +90,7 @@ export const Chat: FC<Props> = ({ conversation, models, apiKey, isUsingEnv, mess
       ) : (
         <>
           <div
-            className="overflow-scroll max-h-full"
+            className="overflow-scroll max-h-full pb-6"
             ref={chatContainerRef}
           >
             {conversation.messages.length === 0 ? (
@@ -118,6 +118,7 @@ export const Chat: FC<Props> = ({ conversation, models, apiKey, isUsingEnv, mess
               <>
                 <div className="flex justify-center py-2 text-neutral-500 bg-neutral-100 dark:bg-[#444654] dark:text-neutral-200 text-sm border border-b-neutral-300 dark:border-none">Model: {conversation.model.name}</div>
 
+                <div className="pb-10 md:pb-14">
                 {conversation.messages.map((message, index) => (
                   <ChatMessage
                     key={index}
@@ -125,11 +126,13 @@ export const Chat: FC<Props> = ({ conversation, models, apiKey, isUsingEnv, mess
                     lightMode={lightMode}
                   />
                 ))}
-
                 {loading && <ChatLoader />}
+                </div>
+
+                
 
                 <div
-                  className="bg-white dark:bg-[#343541] h-[162px]"
+                  className="bg-white dark:bg-[#343541]"
                   ref={messagesEndRef}
                 />
               </>
