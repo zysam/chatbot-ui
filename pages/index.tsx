@@ -169,22 +169,24 @@ export default function Home() {
   };
 
   const fetchModels = async (key: string) => {
-    const response = await fetch("/api/models", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        key
-      })
-    });
+    // const response = await fetch("/api/models", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     key
+    //   })
+    // });
 
-    if (!response.ok) {
-      setModelError(true);
-      return;
-    }
+    // if (!response.ok) {
+    //   setModelError(true);
+    //   return;
+    // }
 
-    const data = await response.json();
+    // const data = await response.json();
+    const data = Object.values( OpenAIModels );
+      
 
     if (!data) {
       setModelError(true);

@@ -10,10 +10,14 @@ const handler = async (req: Request): Promise<Response> => {
       key: string;
     };
 
+    const apiKey = key ? key : process.env.OPENAI_API_KEY
+
+    console.log('key:', apiKey)
+
     const response = await fetch("https://api.openai.com/v1/models", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${key ? key : process.env.OPENAI_API_KEY}`
+        Authorization: `Bearer ${apiKey}`
       }
     });
 
