@@ -18,7 +18,9 @@ interface Props {
   stopConversationRef: MutableRefObject<boolean>;
   textareaRef: MutableRefObject<HTMLTextAreaElement | null>;
 }
-const ChatFooter = () => (
+const ChatFooter = () => {
+  const { t } = useTranslation('chat');
+  return (
   <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
         <a
           href="https://github.com/mckaywrigley/chatbot-ui"
@@ -28,9 +30,13 @@ const ChatFooter = () => (
         >
           ChatBot UI
         </a>
-        . Chatbot UI is an advanced chatbot kit for OpenAI&apos;s chat models aiming to mimic ChatGPT&apos;s interface and functionality.
+        .{' '}
+        {t(
+          "Chatbot UI is an advanced chatbot kit for OpenAI's chat models aiming to mimic ChatGPT's interface and functionality.",
+        )}
       </div>
 )
+        }
 
 export const ChatInput: FC<Props> = ({
   messageIsStreaming,
@@ -129,7 +135,7 @@ export const ChatInput: FC<Props> = ({
 
         {!messageIsStreaming && messages.length > 0 && (
           <button
-            className="absolute -top-2 left-0 right-0 mx-auto w-fit rounded border border-gray-500 py-2 px-4 text-black hover:opacity-50 dark:bg-[#343541] dark:text-white md:top-0"
+            className="absolute -top-8 left-0 right-0 mx-auto w-fit rounded border border-gray-500 py-1 px-4 text-black hover:opacity-50 dark:bg-[#343541] dark:text-white md:-top-4"
             onClick={onRegenerate}
           >
             <IconRepeat size={16} className="mb-[2px] inline-block" />{' '}
@@ -168,24 +174,7 @@ export const ChatInput: FC<Props> = ({
           </button>
         </div>
       </div>
-<<<<<<< HEAD
       
-=======
-      <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
-        <a
-          href="https://github.com/mckaywrigley/chatbot-ui"
-          target="_blank"
-          rel="noreferrer"
-          className="underline"
-        >
-          ChatBot UI
-        </a>
-        .{' '}
-        {t(
-          "Chatbot UI is an advanced chatbot kit for OpenAI's chat models aiming to mimic ChatGPT's interface and functionality.",
-        )}
-      </div>
->>>>>>> origin/main
     </div>
   );
 };

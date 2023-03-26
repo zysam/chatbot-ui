@@ -217,30 +217,30 @@ const Home: React.FC<HomeProps> = ({ serverSideApiKeyIsSet }) => {
       ],
     } as ErrorMessage;
 
-    const response = await fetch('/api/models', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        key,
-      }),
-    });
+    // const response = await fetch('/api/models', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     key,
+    //   }),
+    // });
 
-    if (!response.ok) {
-      try {
-        const data = await response.json();
-        Object.assign(error, {
-          code: data.error?.code,
-          messageLines: [data.error?.message],
-        });
-      } catch (e) {}
-      setModelError(error);
-      return;
-    }
+    // if (!response.ok) {
+    //   try {
+    //     const data = await response.json();
+    //     Object.assign(error, {
+    //       code: data.error?.code,
+    //       messageLines: [data.error?.message],
+    //     });
+    //   } catch (e) {}
+    //   setModelError(error);
+    //   return;
+    // }
 
-    const data = await response.json();
-    // const data = Object.values( OpenAIModels );
+    // const data = await response.json();
+    const data = Object.values( OpenAIModels );
       
 
     if (!data) {

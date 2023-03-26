@@ -13,7 +13,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     const apiKey = key ? key : process.env.OPENAI_API_KEY
 
-    console.log('key:', apiKey)
+    console.log('apiKey:', apiKey)
+    console.log('apiHost', OPENAI_API_HOST)
 
     const response = await fetch(`${OPENAI_API_HOST}/v1/models`, {
       headers: {
