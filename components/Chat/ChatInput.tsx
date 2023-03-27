@@ -121,11 +121,11 @@ export const ChatInput: FC<Props> = ({
   }
 
   return (
-    <div className="absolute bottom-0 left-0 w-full border-transparent bg-gradient-to-b from-transparent via-white to-white pt-6 dark:border-white/20 dark:via-[#343541] dark:to-[#343541] md:pt-2">
-      <div className="stretch mx-2 mt-4 flex flex-row gap-3 last:mb-2 md:mx-4 md:mt-[52px] md:last:mb-6 lg:mx-auto lg:max-w-3xl">
+    <div className="absolute bottom-0 mx-auto w-full border-transparent bg-gradient-to-b from-transparent via-white to-white pt-6 dark:border-white/20 dark:via-[#343541] dark:to-[#343541] md:pt-2">
+      <div className="stretch w-11/12 mx-auto mt-1 flex flex-row gap-3 last:mb-2  md:mt-1 md:last:mb-6 lg:mx-auto lg:max-w-3xl">
         {messageIsStreaming && (
           <button
-            className="absolute -top-2 left-0 right-0 mx-auto w-fit rounded border border-neutral-200 bg-white py-2 px-4 text-black dark:border-neutral-600 dark:bg-[#343541] dark:text-white md:top-0"
+            className="absolute -top-6 left-0 right-0 mx-auto w-fit rounded border border-neutral-200 bg-white py-2 px-4 text-black dark:border-neutral-600 dark:bg-[#343541] dark:text-white md:-top-8"
             onClick={handleStopConversation}
           >
             <IconPlayerStop size={16} className="mb-[2px] inline-block" />{' '}
@@ -143,10 +143,10 @@ export const ChatInput: FC<Props> = ({
           </button>
         )}
 
-        <div className="relative flex w-full flex-grow flex-col rounded-md border border-black/10 bg-white py-2 shadow-[0_0_10px_rgba(0,0,0,0.10)] dark:border-gray-900/50 dark:bg-[#40414F] dark:text-white dark:shadow-[0_0_15px_rgba(0,0,0,0.10)] md:py-3 md:pl-4">
+        <div className="relative flex mx-auto w-full flex-grow flex-col rounded-md border border-black/10 bg-white py-2 shadow-[0_0_10px_rgba(0,0,0,0.10)] dark:border-gray-900/50 dark:bg-[#40414F] dark:text-white dark:shadow-[0_0_15px_rgba(0,0,0,0.10)] md:py-3 md:pl-4">
           <textarea
             ref={textareaRef}
-            className="m-0 w-full resize-none border-0 bg-transparent p-0 pr-7 pl-2 text-black outline-none focus:ring-0 focus-visible:ring-0 dark:bg-transparent dark:text-white md:pl-0"
+            className="m-0 mx-auto w-full resize-none border-0 bg-transparent p-0 pr-7 pl-2 text-black outline-none focus:ring-0 focus-visible:ring-0 dark:bg-transparent dark:text-white md:pl-0"
             style={{
               resize: 'none',
               bottom: `${textareaRef?.current?.scrollHeight}px`,

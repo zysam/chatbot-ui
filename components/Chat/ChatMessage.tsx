@@ -87,7 +87,7 @@ export const ChatMessage: FC<Props> = memo(
             {message.role === 'assistant' ? t('AI') : t('You')}:
           </div>
 
-          <div className="prose mt-[-2px] w-full dark:prose-invert">
+          <div className="prose prose-sm md:prose-base mt-[-2px] w-full dark:prose-invert">
             {message.role === 'user' ? (
               <div className="flex w-full">
                 {isEditing ? (
@@ -152,7 +152,7 @@ export const ChatMessage: FC<Props> = memo(
             ) : (
               <>
                 <MemoizedReactMarkdown
-                  className="prose dark:prose-invert"
+                  className="prose max-w-[18rem]  sm:max-w-prose md:max-w-prose dark:prose-invert"
                   remarkPlugins={[remarkGfm, remarkMath]}
                   rehypePlugins={[rehypeMathjax]}
                   components={{
