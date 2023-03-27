@@ -2,14 +2,11 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(req: NextRequest) {
-
-  // Basic Auth example taken from https://github.com/vercel/examples/tree/main/edge-functions/basic-auth-password
   const yourBasicAuth = process.env.BASIC_AUTH
   if (!yourBasicAuth) {
     return NextResponse.next()
   }
   const basicAuth = req.headers.get('authorization')
-  const url = req.nextUrl
   // console.log('basicAuth:', basicAuth)
   
   if (basicAuth) {
